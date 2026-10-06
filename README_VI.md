@@ -1,6 +1,15 @@
 # Paymenter MCP Server 🚀
 
-[English](README.md) | **[🇻🇳 Tiếng Việt](README_VI.md)**
+> [!TIP]
+> 🌐 **Language Selection / Chọn Ngôn Ngữ Tài Liệu:**  
+> 🇺🇸 **[English (README.md)](README.md)** • 🇻🇳 **[Tiếng Việt (README_VI.md)](README_VI.md)**
+
+<div align="center">
+
+<a href="README.md"><img src="https://img.shields.io/badge/Language-English-blue?style=for-the-badge&logo=github" alt="English Documentation"></a>
+<a href="README_VI.md"><img src="https://img.shields.io/badge/Ng%C3%B4n%20Ng%E1%BB%AF-Ti%E1%BA%BFng%20Vi%E1%BB%87t-red?style=for-the-badge&logo=github" alt="Tài Liệu Tiếng Việt"></a>
+
+</div>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
@@ -19,6 +28,7 @@
 
 ## 📑 Mục Lục
 
+- [Tài Liệu Đa Ngôn Ngữ](#-tài-liệu-đa-ngôn-ngữ--translations)
 - [Kiến Trúc Tổng Quan](#-kiến-trúc-tổng-quan)
 - [Tại Sao Nên Dùng Paymenter MCP?](#-tại-sao-nên-dùng-paymenter-mcp)
 - [Tính Năng Nổi Bật](#-tính-năng-nổi-bật)
@@ -33,6 +43,17 @@
 - [Cấu Trúc Thư Mục](#-cấu-trúc-thư-mục)
 - [Đóng Góp & Cộng Đồng](#-đóng-góp--cộng-đồng)
 - [Giấy Phép Bản Quyền](#-giấy-phép-bản-quyền)
+
+---
+
+## 🌐 Tài Liệu Đa Ngôn Ngữ / Translations
+
+Tài liệu này được phát hành chính thức dưới 2 ngôn ngữ:
+
+| Ngôn Ngữ / Language | Liên Kết Tệp | Mô Tả |
+| :--- | :--- | :--- |
+| 🇻🇳 **Tiếng Việt** | [`README_VI.md`](README_VI.md) | Tài liệu tiếng Việt hoàn chỉnh & chuẩn xác 100% |
+| 🇺🇸 **English** | [`README.md`](README.md) | Official documentation (Mặc định chuẩn quốc tế) |
 
 ---
 
@@ -310,3 +331,9 @@ Nếu bạn thấy dự án hữu ích, hãy **tặng một Ngôi Sao ⭐ trên 
 
 Kho lưu trữ này được phân phối theo [Giấy phép MIT](LICENSE).  
 Bản quyền (c) 2026 **Đỗ Ngọc Ánh** (`dongocanh0501`).
+
+---
+
+<p align="center">
+  🌐 <b>Chuyển Đổi Ngôn Ngữ:</b> <a href="README.md"><b>English</b></a> • <a href="README_VI.md"><b>Tiếng Việt</b></a>
+</p>

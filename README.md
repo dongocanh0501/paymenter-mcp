@@ -1,6 +1,15 @@
 # Paymenter MCP Server 🚀
 
-**[English](README.md)** | [🇻🇳 Tiếng Việt](README_VI.md)
+> [!TIP]
+> 🌐 **Language Selection / Chọn Ngôn Ngữ Tài Liệu:**  
+> 🇺🇸 **[English (README.md)](README.md)** • 🇻🇳 **[Tiếng Việt (README_VI.md)](README_VI.md)**
+
+<div align="center">
+
+<a href="README.md"><img src="https://img.shields.io/badge/Language-English-blue?style=for-the-badge&logo=github" alt="English Documentation"></a>
+<a href="README_VI.md"><img src="https://img.shields.io/badge/Ng%C3%B4n%20Ng%E1%BB%AF-Ti%E1%BA%BFng%20Vi%E1%BB%87t-red?style=for-the-badge&logo=github" alt="Tài Liệu Tiếng Việt"></a>
+
+</div>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
@@ -19,6 +28,7 @@
 
 ## 📑 Table of Contents
 
+- [Translations / Đa Ngôn Ngữ](#-translations--đa-ngôn-ngữ)
 - [Architecture Overview](#-architecture-overview)
 - [Why Paymenter MCP?](#-why-paymenter-mcp)
 - [Key Features](#-key-features)
@@ -33,6 +43,17 @@
 - [Repository Structure](#-repository-structure)
 - [Contributing & Community](#-contributing--community)
 - [License](#-license)
+
+---
+
+## 🌐 Translations / Đa Ngôn Ngữ
+
+This documentation is available in multiple languages:
+
+| Language | Document Link | Description |
+| :--- | :--- | :--- |
+| 🇺🇸 **English** | [`README.md`](README.md) | Official documentation (Default) |
+| 🇻🇳 **Tiếng Việt** | [`README_VI.md`](README_VI.md) | Bản dịch tài liệu đầy đủ & chi tiết 100% |
 
 ---
 
@@ -308,3 +329,9 @@ If you find this project useful, please **give it a Star ⭐ on GitHub** to supp
 
 This repository is licensed under the [MIT License](LICENSE).  
 Copyright (c) 2026 **Do Ngoc Anh** (`dongocanh0501`).
+
+---
+
+<p align="center">
+  🌐 <b>Switch Language:</b> <a href="README.md"><b>English</b></a> • <a href="README_VI.md"><b>Tiếng Việt</b></a>
+</p>
