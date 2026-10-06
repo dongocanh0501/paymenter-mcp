@@ -1,0 +1,48 @@
+{
+  "name": "paymenter_list_categories",
+  "description": "List product categories with hierarchy relations (parent, children) and linked products.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "page": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Page number, starting at 1."
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100,
+        "description": "Records per page (1-100). Defaults to 15."
+      },
+      "sort": {
+        "type": "string",
+        "enum": [
+          "id",
+          "-id",
+          "name",
+          "-name"
+        ],
+        "description": "Sort field. Prefix '-' for descending."
+      },
+      "parent_id": {
+        "type": "integer",
+        "description": "Filter by parent category ID."
+      },
+      "name": {
+        "type": "string",
+        "description": "Filter by category name."
+      },
+      "slug": {
+        "type": "string",
+        "description": "Filter by category slug."
+      },
+      "include": {
+        "type": "string",
+        "description": "Comma-separated relations: 'products,parent,children'."
+      }
+    },
+    "additionalProperties": false
+  }
+}

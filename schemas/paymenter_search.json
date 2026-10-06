@@ -1,0 +1,39 @@
+{
+  "name": "paymenter_search",
+  "description": "Search across multiple Paymenter resources (users, orders, services, invoices, tickets, products) using a keyword query.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "Search query keyword, email, or identifier."
+      },
+      "entities": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "users",
+            "orders",
+            "services",
+            "invoices",
+            "tickets",
+            "products"
+          ]
+        },
+        "description": "List of resource types to search within. Defaults to all entities."
+      },
+      "limit": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 50,
+        "description": "Maximum results to return per entity type. Defaults to 10."
+      }
+    },
+    "required": [
+      "query"
+    ],
+    "additionalProperties": false
+  }
+}

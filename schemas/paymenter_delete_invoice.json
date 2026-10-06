@@ -1,0 +1,18 @@
+{
+  "name": "paymenter_delete_invoice",
+  "description": "Permanently delete an invoice and its associated line items. CAUTION: Irreversible.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "invoice_id": {
+        "type": "integer",
+        "description": "Numeric ID of the invoice to delete."
+      }
+    },
+    "required": [
+      "invoice_id"
+    ],
+    "additionalProperties": false
+  }
+}

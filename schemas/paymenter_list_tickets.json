@@ -1,0 +1,64 @@
+{
+  "name": "paymenter_list_tickets",
+  "description": "List customer support tickets with filters by status, priority, department, user, and relation sideloading.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "page": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Page number, starting at 1."
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100,
+        "description": "Records per page (1-100). Defaults to 15."
+      },
+      "sort": {
+        "type": "string",
+        "enum": [
+          "id",
+          "-id",
+          "created_at",
+          "-created_at",
+          "priority",
+          "-priority"
+        ],
+        "description": "Sort field. Prefix '-' for descending."
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "open",
+          "replied",
+          "closed"
+        ],
+        "description": "Filter by ticket status."
+      },
+      "priority": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "description": "Filter by ticket priority level."
+      },
+      "department": {
+        "type": "string",
+        "description": "Filter by department name (e.g. 'Billing', 'Technical')."
+      },
+      "user_id": {
+        "type": "integer",
+        "description": "Filter tickets by customer ID."
+      },
+      "include": {
+        "type": "string",
+        "description": "Comma-separated relations: 'messages,user,assigned_to'."
+      }
+    },
+    "additionalProperties": false
+  }
+}

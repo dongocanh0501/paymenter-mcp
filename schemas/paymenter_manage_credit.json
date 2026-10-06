@@ -1,0 +1,42 @@
+{
+  "name": "paymenter_manage_credit",
+  "description": "Manage prepaid credit balance for a customer (deposit, deduct, set balance, or view credit records).",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "enum": [
+          "get",
+          "add",
+          "deduct",
+          "set"
+        ],
+        "description": "Operation to perform: 'get' to check balance, 'add' to deposit, 'deduct' to spend, 'set' to overwrite."
+      },
+      "user_id": {
+        "type": "integer",
+        "description": "Customer ID who owns the credit wallet."
+      },
+      "amount": {
+        "type": "number",
+        "description": "Credit amount to deposit, deduct, or set (required for 'add', 'deduct', 'set')."
+      },
+      "currency_code": {
+        "type": "string",
+        "default": "USD",
+        "description": "3-letter ISO currency code. Defaults to 'USD'."
+      },
+      "credit_id": {
+        "type": "integer",
+        "description": "Specific credit record ID when updating existing balance record directly."
+      }
+    },
+    "required": [
+      "action",
+      "user_id"
+    ],
+    "additionalProperties": false
+  }
+}

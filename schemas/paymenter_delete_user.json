@@ -1,0 +1,18 @@
+{
+  "name": "paymenter_delete_user",
+  "description": "Permanently delete a user account and associated credentials from Paymenter. CAUTION: Irreversible operation.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": "integer",
+        "description": "Numeric ID of the user to delete."
+      }
+    },
+    "required": [
+      "user_id"
+    ],
+    "additionalProperties": false
+  }
+}

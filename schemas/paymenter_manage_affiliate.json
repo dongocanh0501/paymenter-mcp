@@ -1,0 +1,60 @@
+{
+  "name": "paymenter_manage_affiliate",
+  "description": "Manage affiliate partner accounts, commission rewards, referral codes, or list affiliates.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "enum": [
+          "list",
+          "get",
+          "create",
+          "update",
+          "delete"
+        ],
+        "description": "Affiliate management action to execute."
+      },
+      "affiliate_id": {
+        "type": "integer",
+        "description": "Affiliate ID (required for 'get', 'update', 'delete')."
+      },
+      "user_id": {
+        "type": "integer",
+        "description": "Customer ID (required for 'create')."
+      },
+      "code": {
+        "type": "string",
+        "description": "Unique affiliate referral code (required for 'create', e.g. 'PROMO2026')."
+      },
+      "reward": {
+        "type": "number",
+        "description": "Commission reward percentage or amount."
+      },
+      "enabled": {
+        "type": "boolean",
+        "description": "Whether affiliate account is active."
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Page number for listing, starting at 1."
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100,
+        "description": "Records per page for listing (1-100). Defaults to 15."
+      },
+      "include": {
+        "type": "string",
+        "description": "Comma-separated relations: 'user,orders'."
+      }
+    },
+    "required": [
+      "action"
+    ],
+    "additionalProperties": false
+  }
+}

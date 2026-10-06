@@ -1,0 +1,31 @@
+{
+  "name": "paymenter-mcp",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) Server for Paymenter Billing & Management System (35 Tools, Zero-Dependency Node.js)",
+  "main": "server.js",
+  "bin": {
+    "paymenter-mcp": "./server.js"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node server.js --test"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "paymenter",
+    "billing",
+    "hosting",
+    "vps",
+    "ai-agent",
+    "antigravity",
+    "claude",
+    "cursor"
+  ],
+  "author": "Do Ngoc Anh <dongocanh0501@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

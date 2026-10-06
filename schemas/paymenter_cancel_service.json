@@ -1,0 +1,27 @@
+{
+  "name": "paymenter_cancel_service",
+  "description": "Cancel a service either immediately or scheduled at the end of the current billing cycle.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "service_id": {
+        "type": "integer",
+        "description": "Numeric ID of the service to cancel."
+      },
+      "reason": {
+        "type": "string",
+        "description": "Cancellation reason or customer note."
+      },
+      "immediate": {
+        "type": "boolean",
+        "default": false,
+        "description": "If true, changes status to 'cancelled' immediately. Defaults to false."
+      }
+    },
+    "required": [
+      "service_id"
+    ],
+    "additionalProperties": false
+  }
+}

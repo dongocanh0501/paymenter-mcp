@@ -1,0 +1,21 @@
+{
+  "name": "paymenter_get_dashboard_summary",
+  "description": "Retrieve operational summary metrics and KPI statistics from Paymenter, including active users, pending invoices, active services, and open support tickets.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "period": {
+        "type": "string",
+        "enum": [
+          "today",
+          "week",
+          "month",
+          "all"
+        ],
+        "description": "Aggregation time window for metrics. Defaults to 'all'."
+      }
+    },
+    "additionalProperties": false
+  }
+}

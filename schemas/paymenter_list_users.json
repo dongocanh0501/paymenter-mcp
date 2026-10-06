@@ -1,0 +1,52 @@
+{
+  "name": "paymenter_list_users",
+  "description": "List users registered in Paymenter with filtering by name/email, pagination, sorting, and relation sideloading.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "page": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Page number to retrieve, starting at 1."
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100,
+        "description": "Number of records per page (1-100). Defaults to 15."
+      },
+      "sort": {
+        "type": "string",
+        "enum": [
+          "id",
+          "-id",
+          "email",
+          "-email",
+          "first_name",
+          "-first_name",
+          "created_at",
+          "-created_at"
+        ],
+        "description": "Sort field. Prefix with hyphen '-' for descending order."
+      },
+      "include": {
+        "type": "string",
+        "description": "Comma-separated relations to sideload: properties, orders, services, invoices, tickets, credits, role."
+      },
+      "email": {
+        "type": "string",
+        "description": "Filter users by exact or partial email address."
+      },
+      "first_name": {
+        "type": "string",
+        "description": "Filter users by first name."
+      },
+      "last_name": {
+        "type": "string",
+        "description": "Filter users by last name."
+      }
+    },
+    "additionalProperties": false
+  }
+}

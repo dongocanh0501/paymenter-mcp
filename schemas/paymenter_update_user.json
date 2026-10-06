@@ -1,0 +1,44 @@
+{
+  "name": "paymenter_update_user",
+  "description": "Update profile information, credentials, role, or verification status for an existing user.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": "integer",
+        "description": "Numeric ID of the user to update."
+      },
+      "email": {
+        "type": "string",
+        "format": "email",
+        "description": "Updated email address."
+      },
+      "password": {
+        "type": "string",
+        "minLength": 8,
+        "description": "Updated password (minimum 8 characters required)."
+      },
+      "first_name": {
+        "type": "string",
+        "description": "Updated first name."
+      },
+      "last_name": {
+        "type": "string",
+        "description": "Updated last name."
+      },
+      "role_id": {
+        "type": "integer",
+        "description": "Updated role ID."
+      },
+      "email_verified_at": {
+        "type": "string",
+        "description": "Updated ISO 8601 email verification date."
+      }
+    },
+    "required": [
+      "user_id"
+    ],
+    "additionalProperties": false
+  }
+}

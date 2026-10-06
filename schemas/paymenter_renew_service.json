@@ -1,0 +1,27 @@
+{
+  "name": "paymenter_renew_service",
+  "description": "Extend the validity period and renew a service by adding days or setting a new expiration date.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "service_id": {
+        "type": "integer",
+        "description": "Numeric ID of the service to renew."
+      },
+      "days": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Number of days to extend from current expiration date (e.g. 30)."
+      },
+      "new_expires_at": {
+        "type": "string",
+        "description": "Explicit new expiration ISO 8601 date-time string."
+      }
+    },
+    "required": [
+      "service_id"
+    ],
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "paymenter_create_ticket",
+  "description": "Create a new support ticket on behalf of a customer or administrator.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": "integer",
+        "description": "Customer ID opening the ticket."
+      },
+      "subject": {
+        "type": "string",
+        "description": "Ticket subject line or summary."
+      },
+      "priority": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "description": "Ticket priority level."
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "open",
+          "replied",
+          "closed"
+        ],
+        "default": "open",
+        "description": "Initial ticket status. Defaults to 'open'."
+      },
+      "department": {
+        "type": "string",
+        "description": "Department assigned (e.g. 'Technical Support', 'Billing')."
+      },
+      "initial_message": {
+        "type": "string",
+        "description": "Initial message body or customer question."
+      }
+    },
+    "required": [
+      "user_id",
+      "subject",
+      "priority",
+      "status"
+    ],
+    "additionalProperties": false
+  }
+}

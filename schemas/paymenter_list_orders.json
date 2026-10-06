@@ -1,0 +1,44 @@
+{
+  "name": "paymenter_list_orders",
+  "description": "List customer orders with filtering by user, currency, sorting, and pagination.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "page": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Page number, starting at 1."
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100,
+        "description": "Number of records per page (1-100). Defaults to 15."
+      },
+      "sort": {
+        "type": "string",
+        "enum": [
+          "id",
+          "-id",
+          "created_at",
+          "-created_at"
+        ],
+        "description": "Sort order. Prefix '-' for descending."
+      },
+      "user_id": {
+        "type": "integer",
+        "description": "Filter orders by customer ID."
+      },
+      "currency_code": {
+        "type": "string",
+        "description": "3-letter ISO currency code (e.g. USD, EUR)."
+      },
+      "include": {
+        "type": "string",
+        "description": "Comma-separated relations: 'services,user'."
+      }
+    },
+    "additionalProperties": false
+  }
+}

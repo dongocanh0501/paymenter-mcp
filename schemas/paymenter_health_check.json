@@ -1,0 +1,17 @@
+{
+  "name": "paymenter_health_check",
+  "description": "Check connection and authentication status with Paymenter API. Returns API version, latency, connectivity status, and basic server information.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "timeout": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 60,
+        "description": "HTTP connection timeout in seconds. Defaults to 30."
+      }
+    },
+    "additionalProperties": false
+  }
+}

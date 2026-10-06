@@ -1,0 +1,43 @@
+{
+  "name": "paymenter_create_invoice_item",
+  "description": "Add a line item to an existing invoice with price, quantity, and optional service reference.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "invoice_id": {
+        "type": "integer",
+        "description": "Parent invoice ID to attach item to."
+      },
+      "description": {
+        "type": "string",
+        "description": "Line item description (e.g. 'Cloud VPS Pro - 1 Month')."
+      },
+      "price": {
+        "type": "number",
+        "description": "Unit price of item (e.g. 25.00)."
+      },
+      "quantity": {
+        "type": "integer",
+        "minimum": 1,
+        "default": 1,
+        "description": "Item quantity. Defaults to 1."
+      },
+      "reference_type": {
+        "type": "string",
+        "description": "Polymorphic reference model class (e.g. 'App\\\\Models\\\\Service')."
+      },
+      "reference_id": {
+        "type": "integer",
+        "description": "Polymorphic reference record ID."
+      }
+    },
+    "required": [
+      "invoice_id",
+      "description",
+      "price",
+      "quantity"
+    ],
+    "additionalProperties": false
+  }
+}

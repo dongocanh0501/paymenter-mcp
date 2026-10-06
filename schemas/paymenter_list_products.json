@@ -1,0 +1,54 @@
+{
+  "name": "paymenter_list_products",
+  "description": "List catalog products with filtering by category, visibility, slug, and plans sideloading.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "page": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Page number, starting at 1."
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100,
+        "description": "Records per page (1-100). Defaults to 15."
+      },
+      "sort": {
+        "type": "string",
+        "enum": [
+          "id",
+          "-id",
+          "name",
+          "-name",
+          "created_at",
+          "-created_at"
+        ],
+        "description": "Sort field. Prefix '-' for descending."
+      },
+      "category_id": {
+        "type": "integer",
+        "description": "Filter by product category ID."
+      },
+      "hidden": {
+        "type": "boolean",
+        "description": "Filter by hidden or visible products."
+      },
+      "name": {
+        "type": "string",
+        "description": "Filter by product name."
+      },
+      "slug": {
+        "type": "string",
+        "description": "Filter by product URL slug."
+      },
+      "include": {
+        "type": "string",
+        "description": "Comma-separated relations: 'category,plans'."
+      }
+    },
+    "additionalProperties": false
+  }
+}

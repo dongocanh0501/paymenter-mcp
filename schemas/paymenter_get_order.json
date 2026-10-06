@@ -1,0 +1,22 @@
+{
+  "name": "paymenter_get_order",
+  "description": "Retrieve detailed order information including associated services and customer profile.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "order_id": {
+        "type": "integer",
+        "description": "Numeric ID of the order."
+      },
+      "include": {
+        "type": "string",
+        "description": "Comma-separated relations: 'services,user'."
+      }
+    },
+    "required": [
+      "order_id"
+    ],
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "paymenter_list_invoices",
+  "description": "List invoices with filtering by status (pending, paid, cancelled), user, currency, date, and relation sideloading.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "page": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Page number, starting at 1."
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100,
+        "description": "Records per page (1-100). Defaults to 15."
+      },
+      "sort": {
+        "type": "string",
+        "enum": [
+          "id",
+          "-id",
+          "due_at",
+          "-due_at",
+          "created_at",
+          "-created_at"
+        ],
+        "description": "Sort field. Prefix '-' for descending."
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "pending",
+          "paid",
+          "cancelled"
+        ],
+        "description": "Filter by invoice payment status."
+      },
+      "user_id": {
+        "type": "integer",
+        "description": "Filter invoices by customer ID."
+      },
+      "currency_code": {
+        "type": "string",
+        "description": "Filter by 3-letter ISO currency code (e.g. 'USD')."
+      },
+      "include": {
+        "type": "string",
+        "description": "Comma-separated relations: 'user,items'."
+      }
+    },
+    "additionalProperties": false
+  }
+}

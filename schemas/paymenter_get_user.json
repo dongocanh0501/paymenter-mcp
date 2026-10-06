@@ -1,0 +1,25 @@
+{
+  "name": "paymenter_get_user",
+  "description": "Get detailed information of a specific user by their ID or email, optionally including relations.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": [
+          "integer",
+          "string"
+        ],
+        "description": "Numeric user ID or exact email address."
+      },
+      "include": {
+        "type": "string",
+        "description": "Comma-separated relations to sideload: properties, orders, services, invoices, tickets, credits, role."
+      }
+    },
+    "required": [
+      "user_id"
+    ],
+    "additionalProperties": false
+  }
+}

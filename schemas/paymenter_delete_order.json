@@ -1,0 +1,18 @@
+{
+  "name": "paymenter_delete_order",
+  "description": "Delete an order record from Paymenter. CAUTION: Irreversible.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "order_id": {
+        "type": "integer",
+        "description": "Numeric ID of the order to delete."
+      }
+    },
+    "required": [
+      "order_id"
+    ],
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "name": "paymenter_list_services",
+  "description": "List provisioned customer services with filters by status, user, product, expiration date, and relation sideloading.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "page": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Page number, starting at 1."
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100,
+        "description": "Records per page (1-100). Defaults to 15."
+      },
+      "sort": {
+        "type": "string",
+        "enum": [
+          "id",
+          "-id",
+          "expires_at",
+          "-expires_at",
+          "created_at",
+          "-created_at"
+        ],
+        "description": "Sort order. Prefix '-' for descending."
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "pending",
+          "active",
+          "suspended",
+          "cancelled"
+        ],
+        "description": "Filter by service lifecycle status."
+      },
+      "user_id": {
+        "type": "integer",
+        "description": "Filter services by customer ID."
+      },
+      "product_id": {
+        "type": "integer",
+        "description": "Filter services by product ID."
+      },
+      "include": {
+        "type": "string",
+        "description": "Comma-separated relations: coupon, user, order, product, invoices, properties."
+      }
+    },
+    "additionalProperties": false
+  }
+}

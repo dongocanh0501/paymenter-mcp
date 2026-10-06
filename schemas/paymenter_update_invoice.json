@@ -1,0 +1,39 @@
+{
+  "name": "paymenter_update_invoice",
+  "description": "Update invoice status (e.g. mark as paid), due date, or currency.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "invoice_id": {
+        "type": "integer",
+        "description": "Numeric ID of the invoice to update."
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "pending",
+          "paid",
+          "cancelled"
+        ],
+        "description": "Updated invoice status (e.g. 'paid' upon settlement)."
+      },
+      "due_at": {
+        "type": "string",
+        "description": "Updated ISO 8601 due timestamp."
+      },
+      "currency_code": {
+        "type": "string",
+        "description": "Updated 3-letter ISO currency code."
+      },
+      "user_id": {
+        "type": "integer",
+        "description": "Reassign invoice to different user ID."
+      }
+    },
+    "required": [
+      "invoice_id"
+    ],
+    "additionalProperties": false
+  }
+}

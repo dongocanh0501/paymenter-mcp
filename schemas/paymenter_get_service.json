@@ -1,0 +1,22 @@
+{
+  "name": "paymenter_get_service",
+  "description": "Retrieve full service details including configuration properties, server assignment, plan, and invoice history.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "service_id": {
+        "type": "integer",
+        "description": "Numeric ID of the service."
+      },
+      "include": {
+        "type": "string",
+        "description": "Comma-separated relations: coupon, user, order, product, invoices, properties."
+      }
+    },
+    "required": [
+      "service_id"
+    ],
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "paymenter_suspend_service",
+  "description": "Suspend an active service due to overdue invoice, abuse, or administrative request.",
+  "parameters": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "service_id": {
+        "type": "integer",
+        "description": "Numeric ID of the service to suspend."
+      },
+      "reason": {
+        "type": "string",
+        "description": "Reason for suspension (logged in audit / notes)."
+      }
+    },
+    "required": [
+      "service_id"
+    ],
+    "additionalProperties": false
+  }
+}
