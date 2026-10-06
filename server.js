@@ -11,7 +11,8 @@ const readline = require('readline');
 const process = require('process');
 
 // Configuration from environment variables
-const PAYMENTER_URL = (process.env.PAYMENTER_URL || process.env.PAYMENTER_BASE_URL || 'http://localhost/api').replace(/\/+$/, '');
+const rawPaymenterUrl = (process.env.PAYMENTER_URL || process.env.PAYMENTER_BASE_URL || 'http://localhost/api').replace(/\/+$/, '');
+const PAYMENTER_URL = rawPaymenterUrl.endsWith('/api') ? rawPaymenterUrl : `${rawPaymenterUrl}/api`;
 const PAYMENTER_API_TOKEN = process.env.PAYMENTER_API_TOKEN || process.env.PAYMENTER_TOKEN || '';
 
 /**
