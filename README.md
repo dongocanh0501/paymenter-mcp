@@ -3,11 +3,34 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
 [![Model Context Protocol](https://img.shields.io/badge/MCP-2024--11--05-orange.svg)](https://modelcontextprotocol.io/)
-[![Zero Dependencies](https://img.shields.io/badge/dependencies-0-success.svg)](#features)
+[![Zero Dependencies](https://img.shields.io/badge/dependencies-0-success.svg)](#key-features)
+[![Paymenter Version](https://img.shields.io/badge/Paymenter-v1.2.0%2B-indigo.svg)](https://paymenter.org)
+[![JSON:API Specification](https://img.shields.io/badge/Specification-JSON%3AAPI%20v1.0-blueviolet.svg)](https://jsonapi.org/)
+[![GitHub Stars](https://img.shields.io/github/stars/dongocanh0501/paymenter-mcp?style=social)](https://github.com/dongocanh0501/paymenter-mcp/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/dongocanh0501/paymenter-mcp?style=social)](https://github.com/dongocanh0501/paymenter-mcp/network/members)
+[![GitHub Issues](https://img.shields.io/github/issues/dongocanh0501/paymenter-mcp)](https://github.com/dongocanh0501/paymenter-mcp/issues)
 
-Enterprise-grade **Model Context Protocol (MCP)** Server for **[Paymenter](https://paymenter.org)** (v1.2.0+) — the open-source hosting and cloud billing platform.
+> **Enterprise Model Context Protocol (MCP) Server and Agent Skill for [Paymenter](https://paymenter.org)** (v1.2.0+).  
+> Empowers AI Agents (Google Antigravity, Claude Desktop, Cursor, Cline) to autonomously govern cloud hosting infrastructure, provision VPS/servers, orchestrate client billing, automate support helpdesks, and manage wallet credits.
 
-Equips AI agents (Google Antigravity, Claude Desktop, Cursor, Cline) with **35 specialized tools** to manage hosting infrastructure, client billing, provisioning lifecycle, support tickets, and prepaid balances autonomously.
+---
+
+## 📑 Table of Contents
+
+- [Architecture Overview](#-architecture-overview)
+- [Why Paymenter MCP?](#-why-paymenter-mcp)
+- [Key Features](#-key-features)
+- [35 Tools Catalog](#-35-tools-catalog)
+- [Quickstart & Verification](#-quickstart--verification)
+- [Client Configurations](#-client-configurations)
+  - [Google Antigravity CLI / IDE](#google-antigravity-cli--ide)
+  - [Claude Desktop](#claude-desktop)
+  - [Cursor IDE](#cursor-ide)
+- [JSON:API Sideload Hydration](#-jsonapi-sideload-hydration)
+- [Frequently Asked Questions (FAQ)](#-frequently-asked-questions-faq)
+- [Repository Structure](#-repository-structure)
+- [Contributing & Community](#-contributing--community)
+- [License](#-license)
 
 ---
 
@@ -36,13 +59,25 @@ Equips AI agents (Google Antigravity, Claude Desktop, Cursor, Cline) with **35 s
 
 ---
 
+## 💡 Why Paymenter MCP?
+
+| Capability | Manual API Integration | Paymenter MCP Server |
+| :--- | :--- | :--- |
+| **Agent Discovery** | Requires feeding 180KB OpenAPI JSON into context (~45k tokens) | **Lazy-Loaded Tool Schemas**: Zero token bloat at startup (~85% savings) |
+| **Relational Data** | Raw JSON:API with scattered `included` array (requires manual lookup) | **Automatic Hydration**: Seamlessly maps nested entities into single coherent objects |
+| **Runtime Portability**| Complex dependencies or Docker wrappers | **Zero Dependencies**: Pure Node.js built-ins (`http`, `readline`), starts in `<50ms` |
+| **Error Handling** | Unformatted 422 HTTP validation crashes | Standard MCP `{ isError: true }` with clear parameter diagnostics |
+| **Verification** | Blind runtime calls | Built-in offline test ratchet suite (`--test` flag) |
+
+---
+
 ## ✨ Key Features
 
-* **⚡ Zero External Dependencies**: Built 100% on native Node.js APIs (`http`, `https`, `readline`). Starts in `<50ms` with zero `npm install` requirements.
-* **🎯 35 Specialized Tools**: Full coverage across Users, Orders, Services Provisioning, Invoices, Credits, Support Tickets, Affiliates, and Catalog.
-* **📦 JSON:API Compound Document Hydration**: Automatically resolves and maps related resources from the `included` array (orders, services, invoices, users, tickets) so LLMs receive coherent, hydrated entities instead of raw relational IDs.
-* **🧠 Antigravity Modern Lazy-Loading Standard**: Includes 35 standalone JSON Schema Draft-07 files (`schemas/*.json`) and `instructions.md`, saving **~85% context tokens** upon initialization.
-* **🛡️ Self-Test Ratchet Suite**: Built-in verification (`--test` flag) guaranteeing 100% offline protocol validation with Exit Code 0.
+* **⚡ Zero External Dependencies**: 100% native Node.js (`http`, `https`, `readline`). Works out-of-the-box on Node.js 18+ without running `npm install`.
+* **🎯 35 Specialized Tools**: Comprehensive management across 7 business domains (Users, Orders, Services, Invoices, Credits, Tickets, Catalog).
+* **📦 JSON:API Compound Document Hydration**: Automatically resolves references between `data.relationships` and the `included` array so LLMs receive rich, context-complete payloads.
+* **🧠 Modern Antigravity Lazy-Loading**: Includes 35 standalone JSON Schema Draft-07 files (`schemas/*.json`) and an operational `instructions.md`, preventing context window saturation.
+* **🛡️ Self-Test Ratchet Suite**: Run `node server.js --test` anytime to execute 9 offline test suites with guaranteed Exit Code 0.
 
 ---
 
@@ -88,26 +123,23 @@ Equips AI agents (Google Antigravity, Claude Desktop, Cursor, Cline) with **35 s
 
 ---
 
-## 🚀 Quickstart & Setup
+## 🚀 Quickstart & Verification
 
 ### 1. Prerequisites
-* **Node.js**: v18.0.0 or higher (no external npm dependencies required).
+* **Node.js**: v18.0.0 or higher.
 * **Paymenter Instance**: v1.2.0 or higher with an API Bearer token.
 
 ### 2. Environment Variables
-* `PAYMENTER_URL`: Base API endpoint (default: `http://localhost/api`).
-* `PAYMENTER_API_TOKEN`: Admin Bearer API token generated in Paymenter Admin Settings.
-
 ```bash
 export PAYMENTER_URL="https://billing.yourdomain.com/api"
 export PAYMENTER_API_TOKEN="your_paymenter_api_bearer_token_here"
 ```
 
-### 3. Verify Offline Self-Tests
+### 3. Run Built-in Verification Suite
 ```bash
 node server.js --test
 ```
-*Expected Output:*
+*Output Evidence:*
 ```text
 === Paymenter MCP Server Self-Test Suite ===
 1. Testing method "initialize"... PASSED
@@ -144,7 +176,7 @@ Add to your `~/.gemini/antigravity-cli/settings.json` (or project `.agents/setti
 ```
 
 ### Claude Desktop
-Add to `claude_desktop_config.json`:
+Add to your `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
@@ -179,12 +211,65 @@ Add to `.cursor/mcp.json`:
 
 ---
 
+## 📦 JSON:API Sideload Hydration
+
+Paymenter utilizes the JSON:API v1.0 standard where related objects reside in an `included` array. Paymenter MCP Server intercepts and hydrates these relationships client-side:
+
+```javascript
+// Example: Querying service with user and order relations
+// Raw JSON:API separates data.relationships and included array.
+// Paymenter MCP Server returns unified, hydrated data:
+{
+  "id": "104",
+  "type": "services",
+  "attributes": {
+    "status": "active",
+    "expires_at": "2027-01-01T00:00:00Z"
+  },
+  "hydrated_relationships": {
+    "user": {
+      "id": "42",
+      "email": "customer@example.com",
+      "first_name": "Jane"
+    },
+    "order": {
+      "id": "89",
+      "currency_code": "USD"
+    }
+  }
+}
+```
+
+---
+
+## ❓ Frequently Asked Questions (FAQ)
+
+#### Q1: What version of Paymenter is supported?
+**A**: Paymenter MCP Server officially supports Paymenter **v1.2.0 and higher**, which features the modern Laravel JSON:API administrative backend.
+
+#### Q2: Does this work if Paymenter is running in Docker?
+**A**: **Yes!** As long as your Paymenter container exposes its web port (e.g. `http://localhost:8000/api` or `https://billing.domain.com/api`), the MCP server will interact seamlessly via standard HTTP.
+
+#### Q3: What API token permissions are required?
+**A**: The Bearer token should be generated with **Administrator privileges** inside the Paymenter admin control panel to access administrative routes (`/v1/admin/*`).
+
+#### Q4: Why is this written in Zero-Dependency Node.js?
+**A**: To maximize portability, reliability, and speed. AI coding assistants (Antigravity CLI, Claude Desktop, Cursor) can launch `server.js` instantly without risking broken dependencies or needing an active internet connection to run `npm install`.
+
+#### Q5: Can I use this alongside the Antigravity Agent Skill?
+**A**: **Yes!** The included [`skill/`](skill/) directory contains `SKILL.md` and reference guides designed specifically for Antigravity, providing deep domain knowledge while the MCP server executes the API operations.
+
+#### Q6: How are rate limits handled?
+**A**: Paymenter MCP Server gracefully handles HTTP `429 Too Many Requests` responses, returning formatted error diagnostics with retry suggestions directly to the calling LLM.
+
+---
+
 ## 📁 Repository Structure
 
 ```
 paymenter-mcp/
-├── package.json                          # Node.js project manifest (zero npm dependencies)
-├── server.js                             # Self-contained MCP server (JSON-RPC 2.0 stdio, 35 tools)
+├── package.json                          # Node.js project manifest (zero dependencies)
+├── server.js                             # Standalone MCP server (JSON-RPC 2.0 stdio, 35 tools)
 ├── schemas/                              # Modern Antigravity Lazy-Loaded JSON schemas
 │   ├── instructions.md                   # Operational guidelines & relationship rules
 │   ├── paymenter_health_check.json
@@ -197,6 +282,11 @@ paymenter-mcp/
 │   │   └── jsonapi-conventions.md        # JSON:API v1.0 specifications
 │   └── scripts/
 │       └── paymenter_client.py           # Standalone Python client SDK
+├── .github/                              # GitHub templates
+│   └── ISSUE_TEMPLATE/
+│       ├── bug_report.md
+│       └── feature_request.md
+├── CONTRIBUTING.md                       # Contribution guidelines
 ├── .gitignore
 ├── LICENSE                               # MIT License
 └── README.md                             # Documentation & user guide
@@ -204,6 +294,15 @@ paymenter-mcp/
 
 ---
 
+## 🤝 Contributing & Community
+
+Contributions are welcomed! Please read our [Contributing Guidelines](CONTRIBUTING.md) and check out our [Bug Report](.github/ISSUE_TEMPLATE/bug_report.md) and [Feature Request](.github/ISSUE_TEMPLATE/feature_request.md) templates.
+
+If you find this project useful, please **give it a Star ⭐ on GitHub** to support open-source AI infrastructure!
+
+---
+
 ## 📄 License
 
-This repository is licensed under the [MIT License](LICENSE). Contributions, bug reports, and pull requests are welcome!
+This repository is licensed under the [MIT License](LICENSE).  
+Copyright (c) 2026 **Do Ngoc Anh** (`dongocanh0501`).
